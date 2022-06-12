@@ -1,2 +1,18 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>User info</h1>
+<%= image_tag @user.get_profile_image(100, 100) %>
+<h3>name <%= @user.name %></h3>
+<h3>introduction <%= @user.introduction %></h3>
+
+<% if @user==current_user %>
+    <p><%= link_to "ユーザー編集", edit_user_path(@user) %></p>
+<% end %>
+
+<h1>New book</h1>
+<%= form_with model: @book do |f| %>
+ <label for= "inputTitle">Title</label><br>
+  <%= f.text_field :title %><br>
+ <label for= "inputOpinion">Opinion</label><br>
+  <%= f.text_field :opinion %><br>
+
+ <%= f.submit "create book" %>
+<% end %>
