@@ -8,11 +8,11 @@
 <% end %>
 
 <h1>New book</h1>
-<%= form_with model: @book do |f| %>
+<%= form_with model: @new_book do |new_book| %>
  <label for= "inputTitle">Title</label><br>
-  <%= f.text_field :title %><br>
+  <%= new_book.text_field :title %><br>
  <label for= "inputOpinion">Opinion</label><br>
-  <%= f.text_field :opinion %><br>
+  <%= new_book.text_field :opinion %><br>
 
- <%= f.submit "create book" %>
+ <%= new_book.submit "create book" %>
 <% end %>
