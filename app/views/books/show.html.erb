@@ -5,7 +5,6 @@
       <h1>Book detail</h1>
     </div>
 
-    <%= image_tag @book.get_image(100, 100) %>
     <%= link_to @book.user.name, user_path(@book.user) %>
     <table class="table table-striped">
       <%= link_to "#{@book.title}", book_path(@book.id) %>
