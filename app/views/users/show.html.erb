@@ -1,18 +1,3 @@
-<h1>User info</h1>
-<%= image_tag @user.get_profile_image(100, 100) %>
-<h3>name <%= @user.name %></h3>
-<h3>introduction <%= @user.introduction %></h3>
+<%= render "books/user_info",user: @user, book_new: @book_new %>
 
-<% if @user==current_user %>
-    <p><%= link_to "ユーザー編集", edit_user_path(@user) %></p>
-<% end %>
-
-<h1>New book</h1>
-<%= form_with model: @new_book do |new_book| %>
- <label for= "inputTitle">Title</label><br>
-  <%= new_book.text_field :title %><br>
- <label for= "inputOpinion">Opinion</label><br>
-  <%= new_book.text_field :opinion %><br>
-
- <%= new_book.submit "create book" %>
-<% end %>
+<h1>Books</h1>

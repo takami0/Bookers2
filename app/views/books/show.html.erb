@@ -1,3 +1,4 @@
+<%= render "user_info",user: @user, book_new: @book_new %>
 
 <div class="container">
   <div class="row">
@@ -5,9 +6,10 @@
       <h1>Book detail</h1>
     </div>
 
-    <%= link_to @book.user.name, user_path(@book.user) %>
     <table class="table table-striped">
-      <%= link_to "#{@book.title}", book_path(@book.id) %>
+      <%= image_tag @user.get_profile_image(100, 100) %>
+      <%= link_to @user.name, user_path(@user.id) %>
+      <%= link_to @book.title, book_path(@book.id) %>
       <%= @book.opinion %>
       <%= link_to "Edit", edit_book_path(@book.id) %>
       <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "are you sure?" %>

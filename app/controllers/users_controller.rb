@@ -1,14 +1,10 @@
 class UsersController < ApplicationController
   def show
-    @user = User.find(params[:id])
-    @book = Book.new
-    if @book.save
-      redirect_to controller: :books, action: :show
-    end
+    @user = current_user
   end
 
   def index
-    # @user = User.find(params[:id])
+    @user = current_user
     @users = User.all
   end
 
