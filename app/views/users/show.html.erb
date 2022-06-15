@@ -1,3 +1,13 @@
-<%= render "books/user_info",user: @user, book_new: @book_new %>
-
-<h1>Books</h1>
+<div class = "row">
+  <div class = "col-lg-6">
+    <%= render "books/user_info",user: @user, book_new: @book_new %>
+  </div>
+  <div class = "col-lg-6">
+    <h1>Books</h1>
+    <%= image_tag @user.get_profile_image(100, 100) %>
+    <% @books.each do |book| %>
+      <%= link_to "#{book.title}", book_path(book.id) %>
+      <%= book.opinion %>
+    <% end %>
+  </div>
+</div>
