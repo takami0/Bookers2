@@ -9,14 +9,8 @@
   <p><%= link_to "user編集", edit_user_path(@user.id) %></p>
 
 <h1>New book</h1>
-<% if book_new.errors.any? %>
-  <%= book_new.errors.count %>件のエラーが発生しました
-  <% book_new.errors.fullmessages.each do |message| %>
-    <%= message %>
-  <%end%>
-<%end%>
 
-<%= form_with model: book_new do |f| %>
+<%= form_with model: book_new, url:books_path, method: :post  do |f| %>
   <label for= "inputTitle">Title</label><br>
     <%= f.text_field :title %><br>
   <label for= "inputOpinion">Opinion</label><br>
