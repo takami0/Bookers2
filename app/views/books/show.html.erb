@@ -10,8 +10,10 @@
       <%= link_to @user.name, user_path(@user.id) %>
       <%= link_to @book.title, book_path(@book.id) %>
       <%= @book.opinion %>
-      <%= link_to "Edit", edit_book_path(@book.id) %>
-      <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "are you sure?" %>
+      <% if @book.user == current_user %>
+        <%= link_to "Edit", edit_book_path(@book.id) %>
+        <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "are you sure?" %>
+      <%end%>
     </table>
   </div>
 </div>

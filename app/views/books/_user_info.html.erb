@@ -1,12 +1,20 @@
 <h1>User info</h1>
 <%= image_tag user.get_profile_image(100, 100) %>
-  <table class="table table-striped">
-    <p>name</p>
-    <%= user.name %>
-    <p>introduction</p>
-    <%= user.introduction %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>name</th>
+        <th><%= user.name %></th>
+      </tr>
+      <tr>
+        <th>introduction</th>
+        <th><%= user.introduction %></th>
+      </tr>
+    </thead>
   </table>
-  <p><%= link_to "user編集", edit_user_path(@user.id) %></p>
+  <%= link_to edit_user_path(@user.id), class: "btn btn-sm, btn-success", method: :get do %>
+    <i class="fa-solid fa-user-gear"></i>
+  <%end%>
 
 <h1>New book</h1>
 <% if book_new.errors.any? %>

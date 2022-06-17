@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :authenticate_user!, only: [:edit]
+
   def new
     @book_new = Book.new
   end
@@ -7,7 +9,7 @@ class BooksController < ApplicationController
     @book_new = Book.new(book_params)
     @book_new.user_id = current_user.id
     if @book_new.save
-      flash[:notice] = "Book was successfully created"
+      
       redirect_to book_path(@book_new.id)
     else
       @user = current_user
@@ -49,7 +51,7 @@ class BooksController < ApplicationController
 
   private
   def book_params
-    params.require(:book).permit(:title, :opinion)
+    params.require(:book).permit(:title, :opinion, :user_id )
   end
 
 end

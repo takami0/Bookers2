@@ -5,13 +5,21 @@
 
   <div class="col-lg-6">
     <h1>Books</h1>
-    <table class="table table-striped">
-      <% @books.each do |book| %>
-        <p>Title</p>
-        <p>Opinion</p>
-        <%= link_to book.title, book_path(book.id) %>
-        <%= book.opinion %>
-      <% end %>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th>Opinion</th>
+        </tr>
+      </thead>
+    <% @books.each do |book| %>
+      <tbody>
+        <td><%= image_tag @user.get_profile_image(100, 100) %></td>
+        <td><%= link_to book.title, book_path(book.id) %></td>
+        <td><%= book.opinion %></td>
+      </tbody>
+    <% end %>
     </table>
   </div>
 </div>
