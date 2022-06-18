@@ -1,10 +1,25 @@
-<%= render "books/user_info",user: @user, book_new: @book_new %>
+<div class = "row">
+  <div class = "col-lg-3">
+    <%= render "books/user_info", user_self: @user_self, user: @user, book_new: @book_new %>
+  </div>
+  <div class = "col-lg-9">
+    <h1>Users</h1>
+    <table class="table">
+      <thed>
+        <tr>
+          <th>image</th>
+          <th>name</th>
+          <th></th>
+        </tr>
+      </thed>
+      <% @users.each do |user| %>
+      <tbody>
+        <td><%= image_tag user.get_profile_image(100, 100) %></td>
+        <td><%= user.name %></td>
+        <td><%= link_to "show", user_path(user) %></td>
+      </tbody>
+      <%end%>
+    </table>
+  </div>
+</div>
 
-<h1>Users</h1>
-<% @users.each do |f| %>
-  <h4>image</h4>
-    <%= image_tag f.get_profile_image(100, 100) %>
-  <h4>name</h4>
-    <%= f.name %>
-  <p><%= link_to "show", user_path(f) %>
-<% end %>

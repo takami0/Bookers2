@@ -1,20 +1,21 @@
 <h1>User info</h1>
-<%= image_tag user.get_profile_image(100, 100) %>
+<%= image_tag user_self.get_profile_image(100, 100) %>
   <table class="table">
     <thead>
       <tr>
         <th>name</th>
-        <th><%= user.name %></th>
+        <th><%= user_self.name %></th>
       </tr>
       <tr>
         <th>introduction</th>
-        <th><%= user.introduction %></th>
+        <th><%= user_self.introduction %></th>
       </tr>
     </thead>
   </table>
-  <%= link_to edit_user_path(@user.id), class: "btn btn-sm, btn-success", method: :get do %>
+  <%= link_to edit_user_path(user_self.id), class: "btn btn-sm, btn-success", method: :get do %>
     <i class="fa-solid fa-user-gear"></i>
   <%end%>
+
 
 <h1>New book</h1>
 <% if book_new.errors.any? %>
