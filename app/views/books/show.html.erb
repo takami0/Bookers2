@@ -1,19 +1,26 @@
-<div class="row">
-  <div class="col-lg-6">
-    <%= render "user_info",user_self: @user_self, book_new: @book_new %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <%= render "user_info",user_self: @user_self, book_new: @book_new %>
+    </div>
 
-  <div class="col-lg-6">
-    <h1>Book detail</h1>
-    <table class="table table-striped">
-      <%= image_tag @user_self.get_profile_image(100, 100) %>
-      <%= link_to @user_self.name, user_path(@user_self.id) %>
-      <%= link_to @book.title, book_path(@book.id) %>
-      <%= @book.opinion %>
-      <% if @book.user == current_user %>
-        <%= link_to "Edit", edit_book_path(@book.id) %>
-        <%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "are you sure?" %>
-      <%end%>
-    </table>
+    <div class="col-lg-8">
+      <h1>Book detail</h1>
+      <table class="table">
+        <tr>
+          <th>
+            <%= image_tag @user_self.get_profile_image(100, 100) %><br>
+            <%= link_to @user_self.name, user_path(@user_self.id) %>
+          </th>
+          <th><%= link_to @book.title, book_path(@book.id) %></th>
+          <th><%= @book.opinion %></th>
+        <% if @book.user == current_user %>
+          <th><%= link_to "Edit", edit_book_path(@book.id) %></th>
+          <th><%= link_to "Destroy", book_path(@book.id), method: :delete, "data-confirm" => "are you sure?" %></th>
+        <%end%>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>
+

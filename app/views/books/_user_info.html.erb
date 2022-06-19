@@ -1,3 +1,5 @@
+
+
 <h1>User info</h1>
 <%= image_tag user_self.get_profile_image(100, 100) %>
   <table class="table">
@@ -16,15 +18,7 @@
     <i class="fa-solid fa-user-gear"></i>
   <%end%>
 
-
 <h1>New book</h1>
-<% if book_new.errors.any? %>
-  <%= book_new.errors.count %>件のエラーが発生しました<br>
-  <% book_new.errors.full_messages.each do |message| %>
-    <%= message %><br>
-  <%end%>
-<%end%>
-
 <%= form_with model: book_new, url:books_path, method: :post  do |f| %>
   <label for= "inputTitle">Title</label><br>
     <%= f.text_field :title %><br>
