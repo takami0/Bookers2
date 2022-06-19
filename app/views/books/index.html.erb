@@ -3,7 +3,7 @@
   <%= render "layouts/errors",  book_new: @book_new %>
   <div class="row">
     <div class= "col-lg-6">
-      <%= render "user_info", user_self: @user_self, book_new: @book_new %>
+      <%= render "layouts/user_info", user: @user, book_new: @book_new %>
     </div>
 
     <div class="col-lg-6">

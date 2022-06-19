@@ -1,16 +1,16 @@
 <h1>Editing Book</h1>
 <% if @book.errors.any? %>
-  <%= @book.errors.count %>件のエラーが発生しました<br>
+  <%= @book.errors.count %> error prohibited this obj from being saved:<br>
   <% @book.errors.full_messages.each do |message| %>
     <%= message %><br>
   <%end%>
 <%end%>
 
-<%= form_with model: @book do |f| %>
+<%= form_with model: @book, url:book_path(@book.id), method: :patch do |f| %>
   <label for= "inputTitle">Title</label><br>
     <%= f.text_field :title %><br>
   <label for= "inputOpinion">Opinion</label><br>
-    <%= f.text_field :opinion %><br>
+    <%= f.text_field :body %><br>
   <%= f.submit "Update Book" %>
 <% end %>
 

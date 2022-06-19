@@ -1,6 +1,6 @@
 <div class = "row">
   <div class = "col-lg-3">
-    <%= render "books/user_info", user_self: @user_self, user: @user, book_new: @book_new %>
+    <%= render "layouts/user_info", user: @user, book_new: @book_new %>
   </div>
   <div class = "col-lg-9">
     <h1>Users</h1>
@@ -16,7 +16,7 @@
       <tbody>
         <td><%= image_tag user.get_profile_image(100, 100) %></td>
         <td><%= user.name %></td>
-        <td><%= link_to "show", user_path(user) %></td>
+        <td><%= link_to "show", url:user_path(@user.id), method: :get %></td>
       </tbody>
       <%end%>
     </table>
