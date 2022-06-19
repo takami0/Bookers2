@@ -4,7 +4,7 @@ class Book < ApplicationRecord
   has_one_attached :profile_image
 
   validates :title, presence: true
-  validates :opinion, presence: true
+  validates :body, presence: true
 
   def get_profile_image(width, height)
     unless profile_image.attached?
