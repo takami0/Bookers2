@@ -9,8 +9,8 @@
       <table class="table">
         <tr>
           <th>
-            <%= image_tag @user_self.get_profile_image(100, 100) %><br>
-            <%= link_to @user_self.name, user_path(@user_self.id) %>
+            <%= image_tag @user.get_profile_image(100, 100) %><br>
+            <%= link_to @user.name, user_path(@user.id) %>
           </th>
           <th><%= link_to @book.title, book_path(@book.id) %></th>
           <th><%= @book.body %></th>
