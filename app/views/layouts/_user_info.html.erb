@@ -14,8 +14,14 @@
       </tr>
     </thead>
   </table>
-  <%= link_to edit_user_path(user.id), class: "btn btn-sm, btn-success", method: :get do %>
-    <i class="fa-solid fa-user-gear"></i>
+  <% if user == current_user %>
+    <%= link_to edit_user_path(current_user.id), class: "btn btn-sm, btn-success", method: :get do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <%end%>
+  <%else%>
+    <%= link_to user_path(current_user.id), class: "btn btn-sm, btn-success", method: :get do %>
+      <i class="fa-solid fa-user-gear"></i>
+    <%end%>
   <%end%>
 
 <h1>New book</h1>
@@ -24,5 +30,5 @@
     <%= f.text_field :title %><br>
   <label for= "inputOpinion">Opinion</label><br>
     <%= f.text_field :body %><br>
-  <%= f.submit "create book" %>
+  <%= f.submit "create book", class: "btn btn-success" %>
 <% end %>
