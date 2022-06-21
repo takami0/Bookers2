@@ -1,5 +1,5 @@
 class BooksController < ApplicationController
-  before_action :authenticate_user!, only: [:edit]
+  before_action :authenticate_user!, only: [:edit, :show]
 
   def new
     @book_new = Book.new
@@ -12,6 +12,7 @@ class BooksController < ApplicationController
     if @book_new.save
       redirect_to book_path(@book_new.id), notice: "You have created book successfully."
     else
+      @user = current_user
       @books = Book.all
       render :index
     end
