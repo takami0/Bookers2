@@ -1,8 +1,8 @@
 <div class = "row">
-  <div class = "col-lg-3">
+  <div class = "col-md-3">
     <%= render "layouts/user_info", user: @user, book_new: @book_new %>
   </div>
-  <div class = "col-lg-9">
+  <div class = "col-md-9">
     <h1>Users</h1>
     <table class="table">
       <thed>
@@ -14,7 +14,7 @@
       </thed>
       <% @users.each do |user| %>
       <tbody>
-        <td><%= image_tag user.get_profile_image(100, 100) %></td>
+        <td><%= link_to image_tag(user.get_profile_image(100, 100)), user_path(user.id), method: :get %></td>
         <td><%= user.name %></td>
         <td><%= link_to "show", user_path(user.id), method: :get %></td>
       </tbody>
