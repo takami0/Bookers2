@@ -16,7 +16,7 @@
       <tbody>
         <td><%= link_to image_tag(user.get_profile_image(100, 100)), user_path(user.id), method: :get %></td>
         <td><%= user.name %></td>
-        <td><%= link_to "show", user_path(user.id), method: :get %></td>
+        <td><%= link_to "Show", user_path(user.id), method: :get %></td>
       </tbody>
       <%end%>
     </table>

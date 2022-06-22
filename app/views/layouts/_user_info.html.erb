@@ -14,15 +14,9 @@
       </tr>
     </thead>
   </table>
-  <% if user == current_user %>
-    <%= link_to edit_user_path(current_user.id), class: "btn btn-sm, btn-success", method: :get do %>
-      <i class="fa-solid fa-user-gear"></i>
+    <%= link_to edit_user_path(user.id), class: "btn btn-sm, btn-success", method: :get do %>
+      <i class="fas fa-user-cog"></i>
     <%end%>
-  <%else%>
-    <%= link_to user_path(current_user.id), class: "btn btn-sm, btn-success", method: :get do %>
-      <i class="fa-solid fa-user-gear"></i>
-    <%end%>
-  <%end%>
 
 <h1>New book</h1>
 <%= form_with model: book_new, url:books_path, method: :post  do |f| %>
