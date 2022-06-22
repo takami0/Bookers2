@@ -1,25 +1,26 @@
-<div class = "row">
-  <div class = "col-md-3">
-    <%= render "layouts/user_info", user: @user, book_new: @book_new %>
-  </div>
-  <div class = "col-md-9">
-    <h1>Users</h1>
-    <table class="table">
-      <thed>
-        <tr>
-          <th>image</th>
-          <th>name</th>
-          <th></th>
-        </tr>
-      </thed>
-      <% @users.each do |user| %>
-      <tbody>
-        <td><%= link_to image_tag(user.get_profile_image(100, 100)), user_path(user.id), method: :get %></td>
-        <td><%= user.name %></td>
-        <td><%= link_to "Show", user_path(user.id), method: :get %></td>
-      </tbody>
-      <%end%>
-    </table>
+<div class= "container px-5 px-sm-o">
+  <div class = "row">
+    <div class = "col-md-3">
+      <%= render "layouts/user_info", user: @user, book_new: @book_new %>
+    </div>
+    <div class = "col-md-8 offset-md-1">
+      <h1>Users</h1>
+      <table class="table">
+        <thed>
+          <tr>
+            <th>image</th>
+            <th>name</th>
+            <th></th>
+          </tr>
+        </thed>
+        <% @users.each do |user| %>
+        <tbody>
+          <td><%= link_to image_tag(user.get_profile_image(100, 100)), user_path(user.id), method: :get %></td>
+          <td><%= user.name %></td>
+          <td><%= link_to "Show", user_path(user.id), method: :get %></td>
+        </tbody>
+        <%end%>
+      </table>
+    </div>
   </div>
 </div>
-

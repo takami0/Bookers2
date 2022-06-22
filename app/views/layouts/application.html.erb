@@ -13,15 +13,56 @@
     <h2><%= link_to "Bookers", root_path  %></h2>
 
     <% if user_signed_in? %>
-      <%= link_to "Home", user_path(current_user.id) %>
-      <%= link_to "Users", users_path %>
-      <%= link_to "Books",  books_path %>
-      <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+      <%= link_to user_path(current_user.id) do %>
+        <li>
+          <i class="fas fa-home"></i>
+          <%= "Home" %>
+        </li>
+      <%end%>
+      <%= link_to users_path do %>
+        <li>
+          <i class="fas fa-users"></i>
+          <%= "Users" %>
+        </li>
+      <%end%>
+      <%= link_to books_path do %>
+        <li>
+          <i class="fas fa-book-open"></i>
+          <%= "Books" %>
+        </li>
+      <%end%>
+      <%= link_to destroy_user_session_path, method: :delete do %>
+        <li>
+          <i class="fas fa-sign-out-alt"></i>
+          <%= "Log out" %>
+        </li>
+      <%end%>
+
     <% else %>
-      <%= link_to "Home", root_path %>
-      <%= link_to "About", about_path %>
-      <%= link_to "Sign up", new_user_registration_path %>
-      <%= link_to "Log in", new_user_session_path %>
+      <%= link_to root_path do %>
+        <li>
+          <i class="fas fa-home"></i>
+          <%= "Home" %>
+        </li>
+      <%end%>
+      <%= link_to about_path do %>
+        <li>
+          <i class="fas fa-link"></i>
+          <%= "About" %>
+        </li>
+      <%end%>
+      <%= link_to new_user_registration_path do %>
+        <li>
+          <i class="fas fa-user-plus"></i>
+          <%= "Sign up" %>
+        </li>
+      <%end%>
+      <%= link_to new_user_session_path do %>
+        <li>
+          <i class="fas fa-sign-in-alt"></i>
+          <%= "Log in" %>
+        </li>
+      <%end%>
     <% end %>
 
     <% flash.each do |message_type, message| %>

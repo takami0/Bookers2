@@ -1,15 +1,15 @@
-<div class="container">
+<div class= "container px-5 px-sm-o">
   <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3">
       <%= render "layouts/user_info",user: @user, book_new: @book_new %>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <h1>Book detail</h1>
       <table class="table">
         <tr>
           <th>
-            <%= image_tag @user.get_profile_image(100, 100) %><br>
+            <%= link_to image_tag(@user.get_profile_image(100, 100)), user_path(@user.id) %><br>
             <%= link_to @user.name, user_path(@user.id) %>
           </th>
           <th><%= link_to @book.title, book_path(@book.id) %></th>
